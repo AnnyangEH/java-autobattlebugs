@@ -42,9 +42,9 @@ class TeamTest {
 
         team.buffAll(1, 2);
 
-        assertThat(a.getAttack()).isEqualTo(2);
+        assertThat(a.getDamage()).isEqualTo(2);
         assertThat(a.getHealth()).isEqualTo(3);
-        assertThat(b.getAttack()).isEqualTo(3);
+        assertThat(b.getDamage()).isEqualTo(3);
         assertThat(b.getHealth()).isEqualTo(4);
     }
 
