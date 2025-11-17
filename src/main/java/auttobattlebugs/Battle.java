@@ -18,4 +18,26 @@ public class Battle {
 
         return a; // 임시 동률 처리 나중에 랜덤 추가 필요
     }
+
+    public void exchangeOnce() {
+        Bug aBug = a.getFrontAlive();
+        Bug bBug = b.getFrontAlive();
+
+        int aDamage = aBug.getDamage();
+        int bDamage = bBug.getDamage();
+
+        bBug.takeDamage(aDamage);
+        aBug.takeDamage(bDamage);
+    }
+
+    public void postExchange() {
+        handleFaint(a);
+        handleFaint(b);
+    }
+
+    private void handleFaint(Team team) {
+        Bug front = team.getFrontAlive();
+        if (front != null && !front.isAlive()) {
+        }
+    }
 }
