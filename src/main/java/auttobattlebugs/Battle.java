@@ -1,0 +1,21 @@
+package auttobattlebugs;
+
+public class Battle {
+    private final Team a;
+    private final Team b;
+
+    public Battle(Team a, Team b) {
+        this.a = a;
+        this.b = b;
+    }
+
+    public Team getFirstAttacker() {
+        int aVanguardStat = a.getFrontAlive().getDamage() + a.getFrontAlive().getHealth();
+        int bVanguardStat = b.getFrontAlive().getDamage() + b.getFrontAlive().getHealth();
+
+        if (aVanguardStat > bVanguardStat) return a;
+        if (bVanguardStat > aVanguardStat) return b;
+
+        return a; // 임시 동률 처리 나중에 랜덤 추가 필요
+    }
+}
