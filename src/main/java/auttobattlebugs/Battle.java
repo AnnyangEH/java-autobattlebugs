@@ -30,6 +30,20 @@ public class Battle {
         aBug.takeDamage(bDamage);
     }
 
+    public void triggerFaint(Bug bug, Team ally, Team enemy) {
+        if (!bug.isAlive() && bug.hasTrigger(Trigger.ON_FAINT)) {
+            bug.getAbility().activate(bug, ally, enemy);
+        }
+    }
+
+    public void triggerAllFaint(Team team) {
+        for (Bug bug : team.getAll()) {
+            if (!bug.isAlive() && bug.hasTrigger(Trigger.ON_FAINT)) {
+                bug.getAbility().activate(bug, team, null);
+            }
+        }
+    }
+
     public void postExchange() {
         handleFaint(a);
         handleFaint(b);
